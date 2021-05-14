@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: musician-app
+  labels:
+    app: musician-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: musician-app
+  template:
+    metadata:
+      labels:
+        app: musician-app
+    spec:
+      containers:
+        - name: musician-app
+          image: musician-app:v1
+          ports:
+            - name: http
+              containerPort: 3000
