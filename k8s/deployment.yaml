@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: musician-app
+  name: musician-app-deployment
   labels:
     app: musician-app
 spec:
@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: musician-app
-          image: musician-app:v1
+          image: olustrrax/musician-app:latest
           ports:
             - name: http
               containerPort: 3000
+              protocol: TCP
